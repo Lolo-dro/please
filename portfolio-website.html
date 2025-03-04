@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylvia Nwoye | AI Automation Specialist</title>
+    <style>
+        :root {
+            --primary: #7C4DFF;
+            --secondary: #00E5FF;
+            --dark: #121212;
+            --dark-surface: #1E1E1E;
+            --gray: #B0BEC5;
+            --light-gray: #37474F;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: relative;
+            background-color: rgba(18, 18, 18, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(124, 77, 255, 0.1), transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 229, 255, 0.4);
+            color: var(--white);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .about-text {
+            color: var(--gray);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--light-gray);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, var(--light-gray), var(--dark-surface));
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(0, 229, 255, 0.1), transparent 60%);
+        }
+        
+        .about-image img {
+            width: 90%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: var(--dark-surface);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .project-card {
+            background-color: var(--dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--white);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .project-stats {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-stats h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tech {
+            font-size: 12px;
+            background-color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .contact-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        footer p {
+            color: var(--gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sylvia Nwoye</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI Automation Specialist</h1>
+            <p>Building intelligent workflows and AI agents to transform business operations and drive efficiency.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div>
+                    <p class="about-text">
+                        I'm Sylvia Nwoye, an AI automation specialist with a focus on developing intelligent workflows and AI agents 
+                        that help businesses streamline their operations and achieve greater efficiency.
+                    </p>
+                    <p class="about-text" style="margin-top: 20px;">
+                        My passion lies in creating AI-powered automation solutions that reduce manual workload, 
+                        enhance decision-making processes, and unlock new levels of efficiency for organizations of all sizes.
+                    </p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">AI Automation</span>
+                        <span class="skill-tag">Make.com</span>
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">Chatbot Development</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Workflow Design</span>
+                        <span class="skill-tag">Agent Development</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+                        <path fill="#7C4DFF" d="M45.7,-77.9C59.3,-69.5,70.4,-57.8,78.9,-44.2C87.4,-30.6,93.2,-15.3,93.5,0.2C93.8,15.7,88.5,31.4,79.1,44.1C69.7,56.8,56.2,66.4,42,74.3C27.9,82.1,13.9,88.1,-0.4,88.8C-14.8,89.5,-29.6,84.9,-43,77.2C-56.4,69.4,-68.3,58.5,-76.7,45C-85.1,31.4,-90,15.7,-90.8,-0.4C-91.5,-16.6,-88.1,-33.1,-79.6,-46.5C-71.1,-59.8,-57.6,-69.9,-43.2,-77.9C-28.8,-85.9,-14.4,-91.7,0.6,-92.6C15.5,-93.6,31,-86.4,45.7,-77.9Z" transform="translate(100 100)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                            <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                            <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered Lead Scoring</h3>
+                        <p class="project-desc">
+                            Automated system that uses chatbots and AI to intelligently score and prioritize leads
+                            based on behavior patterns, engagement metrics, and conversion likelihood.
+                        </p>
+                        
+                        <div class="project-stats">
+                            <h4>Impact Statistics</h4>
+                            <ul>
+                                <li>Reduces manual lead qualification time by 78%</li>
+                                <li>Improves lead conversion rates by 45%</li>
+                                <li>Sales teams save 15+ hours weekly on prospecting</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech">Make.com</span>
+                            <span class="tech">API Integration</span>
+                            <span class="tech">Chatbots</span>
+                            <span class="tech">CRM Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                            <line x1="9" y1="20" x2="15" y2="20"></line>
+                            <line x1="12" y1="4" x2="12" y2="20"></line>
+                            <path d="M4.5 11.5L3 13l3 3L9 9l-3-3-1.5 1.5"></path>
+                            <path d="M19.5 11.5L21 13l-3 3L15 9l3-3 1.5 1.5"></path>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automated Content Generation</h3>
+                        <p class="project-desc">
+                            End-to-end automation for content creation and distribution across multiple platforms,
+                            powered by AI for text generation, scheduling, and performance analysis.
+                        </p>
+                        
+                        <div class="project-stats">
+                            <h4>Impact Statistics</h4>
+                            <ul>
+                                <li>Content creation time reduced by 65%</li>
+                                <li>Publishing consistency improved by 93%</li>
+                                <li>SMEs save average of $3,000 monthly on content costs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech">n8n</span>
+                            <span class="tech">Content APIs</span>
+                            <span class="tech">Scheduling</span>
+                            <span class="tech">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                            <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                            <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                            <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                            <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Chatbot Development</h3>
+                        <p class="project-desc">
+                            Custom-built intelligent chatbots designed to handle customer inquiries, 
+                            provide product information, and streamline support processes.
+                        </p>
+                        
+                        <div class="project-stats">
+                            <h4>Impact Statistics</h4>
+                            <ul>
+                                <li>Responds to 87% of common customer inquiries</li>
+                                <li>Customer service costs reduced by up to 40%</li>
+                                <li>Average response time decreased from 24hrs to 2min</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech">LLM Integration</span>
+                            <span class="tech">Dialogue Design</span>
+                            <span class="tech">NLP</span>
+                            <span class="tech">API Connectors</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered Talent Acquisition</h3>
+                        <p class="project-desc">
+                            Automated recruitment workflow that streamlines candidate outreach, 
+                            screening, interview scheduling, and onboarding processes.
+                        </p>
+                        
+                        <div class="project-stats">
+                            <h4>Impact Statistics</h4>
+                            <ul>
+                                <li>Hiring process time reduced by 60%</li>
+                                <li>Candidate screening accuracy improved by 52%</li>
+                                <li>HR teams report 75% reduction in administrative tasks</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech">Make.com</span>
+                            <span class="tech">n8n</span>
+                            <span class="tech">ATS Integration</span>
+                            <span class="tech">Email Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's discuss how AI automation can transform your business</h3>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>sylvia.nwoye@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/sylvianwoye</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+                        <path fill="#00E5FF" d="M47.7,-73.4C62.9,-67.4,77.2,-57.7,83.9,-43.9C90.5,-30.1,89.4,-12.2,83.3,2.2C77.3,16.6,66.2,27.5,56.1,38.8C46,50.1,36.9,61.8,25.2,69.3C13.5,76.8,-0.8,80.3,-15.4,77.7C-30,75.2,-44.9,66.8,-54.8,55.2C-64.7,43.7,-69.7,29.1,-74.5,13.5C-79.3,-2.1,-84,-18.7,-78.8,-31C-73.6,-43.3,-58.5,-51.3,-44,-58.8C-29.5,-66.3,-14.8,-73.4,0.5,-74.2C15.7,-75,31.5,-69.6,47.7,-73.4Z" transform="translate(100 100)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sylvia Nwoye. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
